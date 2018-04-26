@@ -1,0 +1,172 @@
+﻿a {
+    text-decoration: none;
+}
+.cityList {
+    height: 320px;
+    overflow-y: auto;
+    width: 372px;
+    color: #333;
+    font: 12px arial,sans-serif;
+    padding-left: 10px;
+}
+
+    .cityList h4 {
+        font-size: 12px;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    .cityList hr {
+        height: 1px;
+        border-top: solid 1px #ccc;
+        border-bottom: none;
+    }
+
+    .cityList form, .cityList dl {
+        margin: 0;
+    }
+
+    .cityList dd, .cityList h4, .cityList dt {
+        padding: 2px 0;
+        vertical-align: top;
+        line-height: 150%;
+    }
+
+    .cityList dt {
+        float: left;
+        width: 52px;
+    }
+
+    .cityList dd {
+        margin-left: 52px;
+    }
+
+    .cityList a {
+        color: #08c;
+        text-decoration: underline;
+        outline: none;
+        margin-right: 8px;
+    }
+
+    .cityList dt a {
+        margin-right: 0;
+        text-decoration: none;
+    }
+
+.cityListDescript {
+    color: #999;
+}
+
+.cityList .black {
+    color: #000;
+}
+
+.cityList form span {
+    color: red;
+}
+
+.errorTip {
+    display: none;
+}
+
+.cityNameSubmit {
+    cursor: pointer;
+}
+
+.sel_container {
+    top: 0;
+    font-size: 12px;
+    background-color:#F9F9F9;
+    display: inline-block;
+    height: 22px;
+    line-height: 24px;
+    border: 1px solid #DDD;
+    background-color: #FFF;
+    color: #777;
+    font-size: 12px;
+    text-decoration: none;
+    vertical-align: middle;
+    position: relative;
+}
+#curCityText {
+    font-size:12px;
+    color:#08C;
+}
+    #curCityText:hover {
+        color:#777;
+    }
+.map_popup {
+    position: absolute;
+    z-index: 200000;
+    width: 382px;
+    height: 344px;
+    top: 17px;
+    display: none;
+    margin-left: -11px
+}
+
+    .map_popup .popup_main {
+        border: 1px solid #CDCDCD;
+        z-index: 2;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #FAFAFA none repeat scroll 0% 0%;
+        overflow: hidden;
+    }
+
+    .map_popup .title {
+        background: #F2F2F2 none repeat scroll 0% 0%;
+        border-bottom: 1px solid #DADADA;
+        height: 25px;
+        line-height: 25px;
+        font-size: 12px;
+        color: #4C4C4C;
+        padding-left: 7px;
+    }
+
+    .map_popup button {
+        position: absolute;
+        z-index: 50;
+        top: 7px;
+        right: 6px;
+        width: 12px;
+        height: 12px;
+        background: transparent url("popup_close_15d2283.gif") no-repeat scroll 0% 0%;
+        border: 0px none;
+        cursor: pointer;
+    }
+
+.tangram-suggestion-main {
+    border: 1px solid #817F82;
+    position: absolute;
+    z-index: 200001;
+    background: #fff;
+}
+
+.tangram-suggestion table {
+    cursor: default;
+    width: 100%;
+}
+
+.tangram-suggestion td {
+    font: 14px verdana;
+}
+
+.tangram-suggestion-current {
+    background-color: #66CC66;
+    color: #fff;
+}
+
+.tangram-suggestion-append {
+    padding: 2px;
+    color: #c0c0c0;
+    font: 12px verdana;
+    text-align: right;
+}
+
+.tangram-suggestion-prepend {
+    padding: 2px;
+    color: #c0c0c0;
+    font: 12px verdana;
+}

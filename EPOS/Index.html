@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>Color Admin | Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+    <link href="Content/Plugin/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+    <link href="Content/Plugin/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/Plugin/assets/plugins/bootstrap-table/css/bootstrap-table.css" rel="stylesheet" />
+    <link href="Content/Plugin/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="Content/Plugin/assets/css/animate.min.css" rel="stylesheet" />
+    <link href="Content/Plugin/assets/css/style.min.css" rel="stylesheet" />
+    <link href="Content/Plugin/assets/css/style-responsive.min.css" rel="stylesheet" />
+    <link href="Content/Plugin/assets/css/theme/default.css" rel="stylesheet" id="theme" />
+    <!-- ================== END BASE CSS STYLE ================== -->
+    <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+    <link href="Content/Plugin/assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" />
+    <link href="Content/Plugin/assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
+    <!-- ================== END PAGE LEVEL STYLE ================== -->
+    <link rel="stylesheet" href="Content/Plugin/easyui/rect.css">
+    <!-- ================== BEGIN BASE JS ================== -->
+    <!-- ================== END PAGE LEVEL JS ================== -->
+</head>
+<body>
+    <div style="padding: 10px">
+        <!-- begin row -->
+        <div class="row" style="padding:0 5px;">
+            <!-- begin col-3 -->
+            <div class="col-md-3 col-sm-6 p5">
+                <div class="widget widget-stats bg-red_1">
+                    <div class="stats-icon bg-red_8 "><i class="fa fa-truck"></i></div>
+                    <div class="stats-info">
+                        <p id="carpassage"></p>
+                        <h4>在途车辆</h4>
+                    </div>
+                    <div class="stats-link">
+                        <a href="javascript:void(0)" id="passageCar" target="_blank">查看详情<i class="fa">>></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- end col-3 -->
+            <!-- begin col-3 -->
+            <div class="col-md-3 col-sm-6 p5">
+                <div class="widget widget-stats  bg-red_2">
+                    <div class="stats-icon bg-red_8"><i class="fa fa-coffee"></i></div>
+                    <div class="stats-info">
+                        <p id="freecar"></p>
+                        <h4>空闲车辆</h4>
+                    </div>
+                    <div class="stats-link">
+                        <a href="javascript:void(0)" id="freeCar">查看详情<i class="fa">>></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- end col-3 -->
+            <!-- begin col-3 -->
+            <div class="col-md-3 col-sm-6 p5">
+                <div class="widget widget-stats  bg-red_3" style="height:113px">
+                    <div class="stats-icon bg-red_8"><i class="fa fa-history"></i></div>
+                    <div class="stats-info">
+                        <p id="comingcar"></p>
+                        <h4>待到车辆</h4>
+                    </div>
+                    <div class="stats-link">
+                        <a href="javascript:;" style="height:31px" id="arrivecar" target="_blank">查看详情<i class="fa">>></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- end col-3 -->
+            <!-- begin col-3 -->
+            <div class="col-md-3 col-sm-6 p5">
+                <div class="widget widget-stats  bg-red_4">
+                    <div class="stats-icon bg-red_8"><i class="fa fa-users"></i></div>
+                    <div class="stats-info">
+                        <p id="allcar"></p>
+                        <h4>全部</h4>
+                    </div>
+                    <div class="stats-link">
+                        <a href="javascript:void(0)" id="allCar">查看详情<i class="fa">>></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- end col-3 -->
+        </div>
+        <!-- end row -->
+        <!-- begin row -->
+        <div class="row" style="padding:0 5px;">
+            <!-- begin col-8 -->
+            <div class="col-md-7 p5">
+                <div class="panel panel-defult papanel-body-5" data-sortable-id="index-1">
+                    <div class="panel-heading">
+                        <div class="panel-heading-btn">
+
+                            <a href="javascript:;" data-click="panel-collapse"><i class="fa fa-angle-down fa-2x defult"></i></a>
+                        </div>
+                        <h4 class="panel-title">运力统计图</h4>
+                    </div>
+
+                    <div class="panel-body">
+                        <div id="main"></div>
+                    </div>
+                </div>
+
+
+                <div class="panel panel-defult papanel-body-5" data-sortable-id="index-6">
+                    <div class="panel-heading">
+                        <div class="panel-heading-btn">
+                            <a href="javascript:;" id="allstarpcar" style="position: relative;top: -4px;">全部发车</a>
+                            <a href="javascript:;" data-click="panel-collapse"><i class="fa fa-angle-down fa-2x defult"></i></a>
+                        </div>
+                        <h4 class="panel-title">实际发车</h4>
+                    </div>
+                    <div class="panel-body p-t-0 ">
+                        <div class="min_heih1">
+                            <table class="table m-b-0" id="TodayDepart" data-classes="table table-no-bordered"></table>
+                        </div>
+                    </div>
+                </div>
+                @*          <div class="panel panel-defult papanel-body-5" data-sortable-id="index-1">
+                    <div class="panel-heading">
+                        <div class="panel-heading-btn">
+                            <a href="javascript:;" data-click="panel-collapse"><i class="fa fa-angle-down fa-2x defult"></i></a>
+                        </div>
+                        <h4 class="panel-title">最近支出</h4>
+                    </div>
+                    <div class="panel-body  p-t-0">
+                        <table class="table m-b-0 diver_ranking" id="TodayDepart" data-classes="table table-no-bordered"></table>
+                    </div>
+                </div>*@
+            </div>
+            <!-- end col-8 -->
+            <!-- begin col-4 -->
+            <div class="col-md-5 p5">
+                <div class="panel panel-defult papanel-body-5" data-sortable-id="index-6">
+                    <div class="panel-heading">
+                        <div class="panel-heading-btn">
+                            @* <a href="javascript:void(0)" id="moreSpan" style="position:relative; top:-5px;"><i class="fa fa-search defult"></i></a>*@
+                            <a href="javascript:;" id="moreSpan" style="position: relative;
+    top: -4px;">全部计划</a>
+                            <a href="javascript:;" data-click="panel-collapse"><i class="fa fa-angle-down fa-2x defult"></i></a>
+                        </div>
+                        <h4 class="panel-title">发车计划</h4>
+                    </div>
+                    <div class="panel-body p-t-0 ">
+                        <div class="min_heih">
+                            <table class="table m-b-0 diver_ranking" id="DepartPlan" data-classes="table table-no-bordered">
+                                @*
+                                <thead>
+                                    <tr>
+                                        <th data-field="StartNode_Name">始发地</th>
+                                        <th data-field="EndNode_Name">目的地</th>
+                                        <th data-field="ScheduleCount">计划发车（车）</th>
+                                    </tr>
+                                </thead>*@
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                @* <div class="panel panel-defult papanel-body-5" data-sortable-id="index-6">
+                    <div class="panel panel-defult papanel-body-5" data-sortable-id="index-6">
+                        <div class="panel-heading">
+                            <div class="panel-heading-btn">
+                                <a href="javascript:;" data-click="panel-collapse"><i class="fa fa-angle-down fa-2x defult"></i></a>
+                            </div>
+                            <h4 class="panel-title">今日实际发车</h4>
+                        </div>
+                        <div class="panel-body p-t-0 min_heih">
+                            <div>
+                                <table class="table m-b-0" id="TodayDepart" data-classes="table table-no-bordered"></table>
+                            </div>
+                        </div>
+                    </div>*@
+                    <div class="panel panel-defult papanel-body-5" data-sortable-id="index-6">
+                        <div class="panel-heading">
+                            <div class="panel-heading-btn">
+                                <a href="javascript:;" data-click="panel-collapse"><i class="fa fa-angle-down fa-2x defult"></i></a>
+                            </div>
+                            <h4 class="panel-title">昨日车辆驾驶行为分析排名（前10名）</h4>
+                        </div>
+                        <div class="panel-body p-t-0">
+                            <div class="min_heih1">
+                                <table class="table m-b-0 diver_ranking" id="CarDrive" data-classes="table table-no-bordered"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end col-4 -->
+        </div>
+        <!-- end row -->
+        </div>
+
+        <script src="Content/Plugin/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+        <script src="Content/Plugin/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+        <script src="Content/Plugin/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="Content/Plugin/assets/plugins/bootstrap-table/bootstrap-table.js"></script>
+        <script src="Content/Plugin/assets/plugins/bootstrap-table/bootstrap-table-zh-CN.js"></script>
+        <!--<script src="Scripts/JS/Common/dragModal.js"></script>-->
+        <!--[if lt IE 9]>
+            <script src="Content//Plugin/assets/crossbrowserjs/html5shiv.js"></script>
+            <script src="Content//Plugin/assets/crossbrowserjs/respond.min.js"></script>
+            <script src="Content//Plugin/assets/crossbrowserjs/excanvas.min.js"></script>
+        <![endif]-->
+        <!-- ================== END BASE JS ================== -->
+        <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+        <script src="Content//Plugin/assets/js/dashboard.min.js"></script>
+        <script src="Content//Plugin/assets/js/apps.min.js"></script>
+        <!--================  echartsBegin  ================-->
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=8GrVRotzGKj3xzIRu07hCzx2"></script>
+
+</body>
+
+</html>

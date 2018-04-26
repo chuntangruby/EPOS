@@ -1,0 +1,43 @@
+﻿#divBtn {
+    background:url(set.gif);
+    width:60px;
+    height:21px;
+    cursor: pointer;
+}
+#MapSetDiv{
+	width: 120px;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	background-color: #F0F0F0;
+	}
+.title_div{
+	height: 20px;
+	border-bottom: solid #CCCCCC 1px;
+	line-height: 20px;
+	background-color: white;
+}
+.maplibTcClose {
+    background: transparent url("popup_close.gif") no-repeat scroll 0px 0px;
+    border: 0px none;
+    cursor: pointer;
+    height: 12px;
+    position: absolute;
+    right: 2px;
+    width: 12px;
+}
+.title_div a{
+	padding-left: 10px;
+	cursor: pointer;
+}
+.content_div{
+	margin:5px 10px 0px 10px;
+	background-color:#F0F0F0;
+	height: 100px;
+}
+.content_div span{
+	clear: both;
+    width: 100%;
+    float: left;
+    word-break: normal;
+    padding-top:5px;
+}

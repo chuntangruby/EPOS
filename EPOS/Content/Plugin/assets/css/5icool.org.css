@@ -1,0 +1,112 @@
+﻿@charset "utf-8";
+/* 酷站代码整理 http://www.5icool.org */
+* {
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+/*history*/
+.history {
+	background:rgba(255, 255, 255, 0.00) url(../images/line04.gif) repeat-y 97px 0;
+	overflow:hidden;
+	position:relative;
+}
+.history-date {
+	overflow:hidden;
+	position:relative;
+}
+.history-date h2.first {
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:99;
+}
+.history-date h2 p {
+	color:#d1913d;
+	display:inline-block;
+    *display:inline;
+	zoom:1;
+	background:url(../images/icon08.gif) no-repeat right 50%;
+	padding-right:17px;
+	margin:21px 0 0 0;
+}
+.history-date ul li:first-child {
+	background: url(../images/icon06.gif) no-repeat 68px 0;
+	height:60px;
+	font-size:12px;
+	font-family:微软雅黑;
+	font-weight:normal;
+	padding-left:45px;
+    margin-bottom:0px;
+    padding-bottom:0px;
+}
+.history-date ul li:last-child {
+    margin-bottom:0px;
+    padding-bottom:0px;
+}
+    .history-date ul li p {
+        font-size: 16px;
+        background: transparent;
+        margin-left: 90px;
+        padding-top: 20px;
+        font-size: 16px;
+        font-family: 微软雅黑;
+        color: #d1913d;
+    }
+.history-date ul li {
+	background:url(../images/102.gif) no-repeat 90px 0;
+	padding-bottom:50px;
+	zoom:1;
+}
+.history-date ul li.green {
+	background:url(../images/101.gif) no-repeat 90px 0;
+	zoom:1;
+}
+.history-date ul li.last {
+	padding-bottom:0;
+}
+.history-date ul li:after {
+	content:" ";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+.history-date ul li h3 {
+	float:left;
+	width:80px;
+	text-align:right;
+	padding-right:5px;
+	color:#526d78;
+	font:normal 12px Arial;
+    word-wrap:break-word;
+}
+.history-date ul li dl {
+	float:left;
+	padding-left:41px;
+	margin-top:0px;
+	font-family:微软雅黑;
+}
+.history-date ul li dl dt {
+	font:12px 微软雅黑;
+	color:#737373;
+    line-height:16px;
+    word-wrap:break-word;
+}
+
+.history-date ul li.green h3 {
+	color:#f08920;
+    word-wrap:break-word;
+}
+.history-date h2.first .more-history {
+	font-size:12px;
+	background:transparent;
+	margin-left:90px;
+}
+*body .history-date ul li dl dt {
+	_font-size:12px!important;
+	_font-weight:bold;
+}
+*body .history-date ul li dl dt span {
+	_font-weight:normal!important;
+}
