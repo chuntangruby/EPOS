@@ -4052,9 +4052,20 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Custemer\FoodSearch.html" />
     <Content Include="Custemer\map_baidu.html" />
     <Content Include="Home.html" />
+    <Content Include="JS\Common\AjaxHelp.js" />
+    <Content Include="JS\Common\checkMethod.js" />
+    <Content Include="JS\Common\dragModal.js" />
+    <Content Include="JS\FoodManage.js" />
+    <Content Include="JS\Home.js" />
+    <Content Include="JS\Login.js" />
+    <Content Include="JS\NewsInfo.js" />
     <Content Include="Login.html" />
+    <Content Include="Merchant\FoodManage.html" />
+    <Content Include="Merchant\NewsInfo.html" />
+    <Content Include="OrderInfo.html" />
     <Content Include="packages.config" />
     <Content Include="assets\less\bootstrap\alerts.less" />
     <Content Include="assets\less\bootstrap\badges.less" />
@@ -5848,8 +5859,6 @@
     <Folder Include="assets\plugins\jquery-file-upload\server\node\tmp\" />
     <Folder Include="assets\plugins\jquery-file-upload\server\php\files\thumbnail\" />
     <Folder Include="Content\Plugin\assets\js\assets\plugins\DataTables\swf\" />
-    <Folder Include="JS\" />
-    <Folder Include="Merchant\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
