@@ -1,0 +1,7 @@
+D:\Project\CC\EPOS\EPOS_Business\bin\Debug\EPOS_Business.dll
+D:\Project\CC\EPOS\EPOS_Business\bin\Debug\EPOS_Business.pdb
+D:\Project\CC\EPOS\EPOS_Business\bin\Debug\EPOS_DataBase.dll
+D:\Project\CC\EPOS\EPOS_Business\bin\Debug\EPOS_DataBase.pdb
+D:\Project\CC\EPOS\EPOS_Business\obj\Debug\EPOS_Business.csprojResolveAssemblyReference.cache
+D:\Project\CC\EPOS\EPOS_Business\obj\Debug\EPOS_Business.dll
+D:\Project\CC\EPOS\EPOS_Business\obj\Debug\EPOS_Business.pdb

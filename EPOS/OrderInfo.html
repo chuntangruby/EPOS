@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Map</title>
+    <link rel="stylesheet" href="Content/Plugin/easyui/easyui.css">
+    <link rel="stylesheet" href="Content/Plugin/easyui/icon.css">
+    <link href="Content/Plugin/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/Plugin/assets/plugins/bootstrap-table/css/bootstrap-table.css" rel="stylesheet" />
+    <link href="Content/Plugin/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="Content/Plugin/assets/css/animate.min.css" rel="stylesheet" />
+    <link href="Content/Plugin/assets/css/style.min.css" rel="stylesheet" />
+    <link href="Content/Plugin/assets/css/style-responsive.min.css" rel="stylesheet" />
+    <link href="Content/Plugin/assets/css/theme/default.css" rel="stylesheet" id="theme" />
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <link rel="stylesheet" href="Content/Plugin/easyui/rect.css">
+    <link href="Content/Plugin/assets/plugins/ZTree/zTreeStyle/RezTreeStyle.css" rel="stylesheet" />
+    <style type="text/css">
+        #allmap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            border: 0px;
+            font-family: "微软雅黑";
+        }
+
+        .BMapLib_SearchInfoWindow *, .BMapLib_SearchInfoWindow {
+            box-sizing: content-box;
+        }
+    </style>
+    <script src="~/Scripts/JqueryEasyUI/jquery.min.js"></script>
+    <script src="~/Scripts/JqueryEasyUI/jquery.easyui.min.js"></script>
+    <script src="~/Scripts/JqueryEasyUI/locale/easyui-lang-zh_CN.js"></script>
+    <script src="~/Scripts/JqueryEasyUI/datagrid-filter.js"></script>
+    <script src="~/Scripts/JqueryEasyUI/easyui-detailview.js"></script>
+
+    <script src="~/Scripts/LabJS/jsrender.min.js"></script>
+    <link href="Content/Plugin/BaiDuMap/CSS/DrawingManager.css" rel="stylesheet" />
+    <script src="Content/Plugin/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Content/Plugin/assets/plugins/bootstrap-table/bootstrap-table.js"></script>
+    <script src="Content/Plugin/assets/plugins/bootstrap-table/bootstrap-table-zh-CN.js"></script>
+    <script src="~/Scripts/BaiDuMap/BMapLib.js"></script>*@
+    <script src="~/Scripts/BaiDuMap/DrawingManager.js"></script>
+    <script src="~/Scripts/BaiDuMap/DrawingMarker.js"></script>
+    <script src="~/Scripts/JqueryEasyUI/easyui-extend.js"></script>
+    <script src="~/Scripts/JS/Common/dragModal.js"></script>
+    <script src="~/Scripts/BaiDuMap/SearchInfoWindow.js"></script>
+    <script src="~/Scripts/JS/Common/Hmap.js"></script>
+    <script src="~/Scripts/JS/Common/loadDropDownList.js"></script>
+    <script src="~/Scripts/JS/Common/AjaxHelper.js"></script>
+    <script src="~/Scripts/JS/BaseSet/LandMark.js"></script>
+</head>
+
+<body class="table_panel" fit="true">
+    <!-- begin #page-container -->
+
+    <div id="left_tree" class="openshow LandMark" style="margin: 0; width: 280px;z-index:1;">
+        <a id="packUpLeft" class="fa fa-2x fa-arrow-circle-left pull-right togglebtn"></a>
+        <div class="panel panel-default" data-sortable-id="morris-chart-2">
+            <div class="panel-heading">
+                <h4 class="panel-title">标记列表</h4>
+            </div>
+            <div class="panel-body">
+                <table id="landMarkForm" class="table" style="background: #fff;" data-toolbar="#toolbar">
+                    <thead>
+                        <tr>
+                            <th data-field="Org_Name">标记名称</th>
+                            <th data-field="action" data-formatter="action" data-events="actionEvents">操作</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div region="center">
+        <div id="allmap"></div>
+    </div>
+    <!--@*信息展示窗口*@-->
+    <div id="win"></div>
+    <div id="searchwindow"></div>
+    <div id="searchMsg" style="display: none;"></div>
+
+    <div id="toolbar">
+        <a class="btn btn-primary btn-sm m10" style="margin-left:10px;" id="addMarkerModal"><i class="fa fa-plus m10"></i>添加标记</a>
+
+    </div>
+    <!--@*添加地标的模态窗*@-->
+    <div id="LandMarkModal" style="z-index: 1000; display: none">
+        <div class="modal-dialog" style="margin: 0 auto;">
+            <div class="modal-content" style="border-top: #0095ff 4px solid">
+                <div class="modal-header">
+                    <button type="button" class="closeProc close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">标记设置</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="ModelForm50 clearfix">
+                        <li>
+                            <span>所属机构：</span><select disabled="disabled" id="subsidiaryOrgan" class="form-control"></select>
+                        </li>
+                        <li>
+                            <span><b>*</b>标记类型：</span><select id="landMarkType" class="form-control"></select>
+                        </li>
+                        <li><span><b>*</b>标记名称：</span><input id="landMarkName" maxlength="30" class="form-control" /></li>
+                        <li>
+                            <span><b>*</b>标记样式：</span><select id="landMarkStyle" class="form-control">
+                                <option value="0">标记</option>
+                                <option value="1">区域标记</option>
+                            </select>
+                        </li>
+                        <li class="w100" id="landRange">
+                            <span><b>*</b>标记范围：</span><select id="landMarkRange" class="form-control">
+                                <option value="500">500米</option>
+                                <option value="800">800米</option>
+                                <option value="1000">1000米</option>
+                                <option value="1500">1500米</option>
+                                <option value="2000">2000米</option>
+                            </select>
+                        </li>
+                        <li class="w100"><span><b>*</b>标记地址：</span><input id="landMarkAddress" class="form-control" /></li>
+                        <li class="w100"><span><b>*</b>标记点：</span><input class="form-control" readonly="readonly" id="landMarkPoint" />鼠标点击地图自动定位</li>
+                    </ul>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnsave"><i class="fa fa-floppy-o fa-x m10"></i>保存</button>
+                        <button type="button" class="closeProc btn btn-default" data-dismiss="modal"><i class="fa fa-power-off fa-x m10"></i>关闭</button>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</body>
+</html>

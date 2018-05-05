@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>加油站设置</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+
+    <link href="/Content/Plugin/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+    <link href="/Content/Plugin/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/Plugin/assets/plugins/bootstrap-table/css/bootstrap-table.css" rel="stylesheet" />
+    <link href="/Content/Plugin/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Content/Plugin/assets/css/animate.min.css" rel="stylesheet" />
+    <link href="/Content/Plugin/assets/css/style.min.css" rel="stylesheet" />
+    <link href="/Content/Plugin/assets/css/style-responsive.min.css" rel="stylesheet" />
+    <link href="/Content/Plugin/assets/css/theme/default.css" rel="stylesheet" id="theme" />
+    <link rel="stylesheet" href="/Content/Plugin/easyui/rect.css">
+    <!-- ================== END BASE CSS STYLE ================== -->
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="/Content/Plugin/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+    <script src="/Content/Plugin/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+    <script src="/Content/Plugin/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+    <script src="/Content/Plugin/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/Content/Plugin/assets/plugins/bootstrap-table/bootstrap-table.js"></script>
+    <script src="/Content/Plugin/assets/plugins/bootstrap-table/bootstrap-table-zh-CN.js"></script>
+    <script src="~/Scripts/JS/Common/AjaxHelper.js"></script>
+    <script src="~/Scripts/JS/Common/checkMethod.js"></script>
+    <script src="~/Scripts/JS/Common/dragModal.js"></script>
+    <!--@Scripts.Render("~/Scripts/DownLoad")-->
+    <script src="~/Scripts/JS/BaseSet/FillingStation.js"></script>
+
+    <!-- ================== END BASE JS ================== -->
+    <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+
+    <script src="/Content/Plugin/assets/js/apps.min.js"></script>
+
+
+    <!-- ================== END PAGE LEVEL JS ================== -->
+
+</head>
+<body class="easyui-layout table_panel" style="overflow: hidden;">
+    <div data-options="region:'center'" border="false" style="padding:0 10px; overflow: hidden;" id="FillingStation_Dg">
+        <table class="table" style="background: #fff;" id="FillingStationtable" data-toolbar="#toolbar" data-response-handler="responseHandler" data-show-columns="true" data-show-footer="false">
+            <thead>
+                <tr>
+                    <th data-options="field:'ProName',width:50,align:'center'" data-field="ProName">菜名</th>
+                    <th data-options="field:'Price',width:50,align:'center'" data-field="Price">价格</th>
+                    <th data-options="field:'Count',width:50,align:'center'" data-field="Count">数量</th>
+                    <th data-options="field:'PictrueUrl',width:50,align:'center'" data-field="PictrueUrl">图片</th>
+                    <th data-options="field:'PictrueUrl',width:50,align:'center'" data-field="UserName">商家</th>
+                    <th data-options="field:'operate',width:50,align:'center'" data-formatter="action" data-events="actionEvents">操作</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <!--@*信息展示窗口*@-->
+    <div id="showwin" class="modal fade">
+        <div class="modal-dialog" style="width: 650px;">
+            <div class="modal-content" style="border-top: #0095ff 4px solid">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">加油站设置</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="ModelForm50 clearfix">
+                        <li><span>流水号：</span><input id="serialid" class="form-control" disabled="disabled" /></li>
+                        <li><span><b>*</b>加油站：</span><input id="station" class="form-control" maxlength="15" /></li>
+                    </ul>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnsave"><i class="fa fa-floppy-o fa-x m10"></i>保存</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="btnclose"><i class="fa fa-power-off fa-x m10"></i>关闭</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <div id="toolbar">
+        <button type="button" class="btn btn-primary btn-sm m-r-5" id="addwindow"><i class="fa fa-plus fa-x m10"></i>新建</button>
+        <button type="button" disabled="disabled" class="btn btn-primarysave btn-sm m-r-5" id="savetocsv"><i class="glyphicon glyphicon-share-alt fa-x m-r-5"></i>导出</button>
+
+    </div>
+</body>
+</html>

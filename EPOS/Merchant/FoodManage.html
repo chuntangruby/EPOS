@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>加油站设置</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <!-- ================== BEGIN BASE CSS STYLE ================== -->
+
+    <link href="/Content/Plugin/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+    <link href="/Content/Plugin/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/Plugin/assets/plugins/bootstrap-table/css/bootstrap-table.css" rel="stylesheet" />
+    <link href="/Content/Plugin/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Content/Plugin/assets/css/animate.min.css" rel="stylesheet" />
+    <link href="/Content/Plugin/assets/css/style.min.css" rel="stylesheet" />
+    <link href="/Content/Plugin/assets/css/style-responsive.min.css" rel="stylesheet" />
+    <link href="/Content/Plugin/assets/css/theme/default.css" rel="stylesheet" id="theme" />
+    <link rel="stylesheet" href="/Content/Plugin/easyui/rect.css">
+    <!-- ================== END BASE CSS STYLE ================== -->
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="/Content/Plugin/assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+    <script src="/Content/Plugin/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+    <script src="/Content/Plugin/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+    <script src="/Content/Plugin/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/Content/Plugin/assets/plugins/bootstrap-table/bootstrap-table.js"></script>
+    <script src="/Content/Plugin/assets/plugins/bootstrap-table/bootstrap-table-zh-CN.js"></script>
+    <script src="/JS/Common/dragModal.js"></script>
+    <script src="/JS/Common/AjaxHelp.js"></script>
+    <script src="/JS/Common/checkMethod.js"></script>
+    <!--@Scripts.Render("~/Scripts/DownLoad")-->
+    <script src="../JS/FoodManage.js"></script>
+    <!-- ================== END BASE JS ================== -->
+    <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+
+    <script src="/Content/Plugin/assets/js/apps.min.js"></script>
+
+
+    <!-- ================== END PAGE LEVEL JS ================== -->
+
+</head>
+
+<body class="easyui-layout table_panel" style="overflow: hidden;">
+    <!--<div id="tablehead">
+       
+    </div>-->
+    <div id="toolbar">
+        <button type="button" class="btn btn-primary btn-sm m-r-5" id="addwindow"><i class="fa fa-plus fa-x m10"></i>新建</button>
+    </div>
+    <div   style="padding:0 10px; " id="FillingStation_Dg">
+        <table class="table" style="background: #fff;" id="FillingStationtable" data-toolbar="#toolbar" data-response-handler="responseHandler" data-show-columns="true" data-show-footer="false">
+            <thead>
+                <tr>
+                    <th data-options="field:'ProName',width:50,align:'center'" data-field="ProName">菜名</th>
+                    <th data-options="field:'Price',width:50,align:'center'" data-field="Price">价格</th>
+                    <th data-options="field:'Count',width:50,align:'center'" data-field="Count">数量</th>
+                    <!--<th data-options="field:'operate',width:50,align:'center'" data-formatter="LoadPic" data-events="">图片</th>-->
+                    <th data-options="field:'PictrueUrl',width:50,align:'center'" data-field="PictrueUrl">图片</th>
+                    <th data-options="field:'operate',width:50,align:'center'" data-formatter="action" data-events="actionEvents">操作</th>
+                </tr>
+</thead>
+            <tbody>
+                <tr>
+                    <td>鱼香肉丝</td>
+                    <td>12.00</td>
+                    <td>20</td>
+                    <td><img src="/assets/img/login-bg_bak1/bg-1.jpg" data-id="login-cover-image" width="80px" height="100px" alt="" /></td>
+                    <td><i id="edit" class="glyphicon glyphicon-pencil icon-success fa-15x  m-r-10"></i><i id="del" class="fa icon-warning fa-15x fa-trash-o"></i></td>
+                </tr>
+                <tr>
+                    <td>宫保鸡丁</td>
+                    <td>18.00</td>
+                    <td>20</td>
+                    <td></td>
+                    <td><i id="edit" class="glyphicon glyphicon-pencil icon-success fa-15x  m-r-10"></i><i id="del" class="fa icon-warning fa-15x fa-trash-o"></i></td>
+                </tr>
+                <tr>
+                    <td>农家小炒肉</td>
+                    <td>18.00</td>
+                    <td>20</td>
+                    <td></td>
+                    <td><i id="edit" class="glyphicon glyphicon-pencil icon-success fa-15x  m-r-10"></i><i id="del" class="fa icon-warning fa-15x fa-trash-o"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--@*信息展示窗口*@-->
+    <div id="showwin" class="modal fade">
+        <div class="modal-dialog" style="width: 650px;">
+            <div class="modal-content" style="border-top: #0095ff 4px solid">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">菜品管理</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="ModelForm50 clearfix">
+                        <li><span>流水号：</span><input id="ProID" class="form-control" disabled="disabled" /></li>
+                        <li><span><b>*</b>菜名：</span><input id="Name" class="form-control" maxlength="15" /></li>
+                        <li><span><b>*</b>数量：</span><input id="count" class="form-control" maxlength="15" /></li>
+                        <li><span><b>*</b>价格：</span><input id="price" class="form-control" maxlength="15" /></li>
+                        <li><span><b>*</b>图片：</span>
+                            <!--<input id="imgurl" class="form-control" maxlength="15" />-->
+                            <input id="imgurl" type="file" class="form-control" maxlength="15"  />
+                            <img src="" data-id="login-cover-image" id="proimg" width="80px" height="100px" alt="" />
+                        </li>
+                    </ul>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnsave"><i class="fa fa-floppy-o fa-x m10"></i>保存</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="btnclose"><i class="fa fa-power-off fa-x m10"></i>关闭</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    
+</body>
+</html>
